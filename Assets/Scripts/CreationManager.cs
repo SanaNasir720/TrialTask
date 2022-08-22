@@ -1,3 +1,4 @@
+using Gamelogic.Extensions;
 using SPStudios.Tools;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,14 +12,48 @@ public class CreationManager : MonoBehaviour
 
     private float ZCoordinate;
 
+    GameObject createdObject = null;
+    private int count = 5;
+
+    private void Start() {
+        Singletons.Get<PrefsManager>().LoadGame(this);
+    }
+
     public void CreateObject(int index) {
 
-        GameObject createdObject = Instantiate(objectsToInstantiate[index],
+        createdObject = Instantiate(objectsToInstantiate[index],
                objectsToInstantiate[index].transform.position,
                objectsToInstantiate[index].transform.rotation);
-
         createdObject.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 5;
+        
 
     }
+
+
+    public void CreateObjectWithAttributes(Vector3 position, Quaternion rotation, Vector3 scale) {
+
+        GameObject createdObject = Instantiate(objectsToInstantiate[0],
+               position,
+               rotation);
+
+        createdObject.transform.localScale = scale;
+
+    }
+
+    public void RemoveAssets() {
+        GameObject[] arrayToRemove = GameObject.FindGameObjectsWithTag("asset");
+
+        foreach (GameObject obj in arrayToRemove) {
+
+            Singletons.Get<UndoManager>().TrackChangeAction(UndoableActionType.Delete, obj, true, false);
+
+            obj.SetActive(false);
+        }
+    }
+    void OnApplicationQuit() {
+
+        Singletons.Get<PrefsManager>().SaveGame();
+    }
+
 
 }

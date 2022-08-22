@@ -54,6 +54,7 @@ public class UndoManager : Singleton {
                 ((GameObject)undo.Target).SetActive((bool)undo.From);
                 break;
 
+
         }
     }
 }
