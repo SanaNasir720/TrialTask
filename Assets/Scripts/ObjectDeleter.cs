@@ -9,6 +9,5 @@ public class ObjectDeleter : MonoBehaviour
         Singletons.Get<UndoManager>().TrackChangeAction(UndoableActionType.Delete, this.gameObject, true, false);
 
         gameObject.SetActive(false);
-
     }
 }

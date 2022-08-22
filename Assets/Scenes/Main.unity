@@ -77033,10 +77033,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1461034824490386794, guid: 67dc6da3f9416154693d44b97a5e14fe, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1641951223}
     - target: {fileID: 5984647189062487154, guid: 67dc6da3f9416154693d44b97a5e14fe, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -77085,10 +77081,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 6669977778254703665, guid: 67dc6da3f9416154693d44b97a5e14fe, type: 3}
-      propertyPath: sizingFactor
-      value: 0.0001
-      objectReference: {fileID: 0}
     - target: {fileID: 8728393441200516201, guid: 67dc6da3f9416154693d44b97a5e14fe, type: 3}
       propertyPath: m_Name
       value: Goat

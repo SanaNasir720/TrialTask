@@ -19,4 +19,7 @@ public class UIController : MonoBehaviour
     public void InstantiateObject(int objNum) {
         creationManager.CreateObject(objNum);
     }
+    public void RemoveAll() {
+        creationManager.RemoveAssets();
+    }
 }

@@ -7,7 +7,7 @@ public class PinchToZoom : MonoBehaviour
     Vector2 prevMousePosition;
     private GameObject mainObject;
     public float sizingFactor = 0.0001f;
-    Vector3 minimumScale;
+    Vector3 minimumScale,maximumScale;
     Vector3 objInitialPosition;
     Vector3 fromScale;
     ModeSelect modeSelect;
@@ -17,6 +17,7 @@ public class PinchToZoom : MonoBehaviour
         mainObject = transform.gameObject;
         // Setting the minimum scale of the mainObject
         minimumScale = new Vector3(.01f, .01f, .01f);
+        maximumScale = new Vector3(.05f, .05f, .05f);
 
         modeSelect = GetComponent<ModeSelect>();
     }
@@ -45,8 +46,11 @@ public class PinchToZoom : MonoBehaviour
             mainObject.transform.localScale = scale;
 
             // Checking if current scale is less than minimumScale, if yes, mainObject scales takes value from minimumScale
-            if (scale.x < minimumScale.x) {
+            if (scale.x < minimumScale.x ) {
                 mainObject.transform.localScale = minimumScale;
+            }
+            if(scale.x > maximumScale.x ) {
+                mainObject.transform.localScale = maximumScale;
             }
         }
 
