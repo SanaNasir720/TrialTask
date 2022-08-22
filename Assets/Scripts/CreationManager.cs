@@ -8,12 +8,7 @@ public class CreationManager : MonoBehaviour
 {
     public GameObject[] objectsToInstantiate;
 
-    private Vector3 OffSet;
-
-    private float ZCoordinate;
-
     GameObject createdObject = null;
-    private int count = 5;
 
     private void Start() {
         Singletons.Get<PrefsManager>().LoadGame(this);
@@ -25,10 +20,7 @@ public class CreationManager : MonoBehaviour
                objectsToInstantiate[index].transform.position,
                objectsToInstantiate[index].transform.rotation);
         createdObject.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 5;
-        
-
     }
-
 
     public void CreateObjectWithAttributes(Vector3 position, Quaternion rotation, Vector3 scale) {
 

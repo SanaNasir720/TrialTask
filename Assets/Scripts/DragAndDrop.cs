@@ -2,9 +2,9 @@ using SPStudios.Tools;
 using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour {
-    private Vector3 OffSet;
+    private Vector3 offSet;
 
-    private float ZCoordinate;
+    private float zCoordinate;
 
     private float x, y, z;
 
@@ -27,18 +27,17 @@ public class DragAndDrop : MonoBehaviour {
 
             Camera.main.GetComponent<CameraMovement>().canMove = false;
 
-            ZCoordinate = Camera.main.WorldToScreenPoint(transform.position).z;
+            zCoordinate = Camera.main.WorldToScreenPoint(transform.position).z;
 
-            OffSet = transform.position - GetMouseWorldPoint();
+            offSet = transform.position - GetMouseWorldPoint();
 
             fromPosition = transform.position;
-
         }
     }
 
     public Vector3 GetMouseWorldPoint() {
         Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = ZCoordinate;
+        mousePoint.z = zCoordinate;
 
         x = y = z = 0;
 
@@ -73,7 +72,7 @@ public class DragAndDrop : MonoBehaviour {
     private void OnMouseDrag() {
 
         if (modeSelect.mode.Equals(ModeSelect.Mode.MOVE))
-            transform.position = GetMouseWorldPoint() + OffSet;
+            transform.position = GetMouseWorldPoint() + offSet;
     }
 }
 
