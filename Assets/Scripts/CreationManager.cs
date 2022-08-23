@@ -11,6 +11,7 @@ public class CreationManager : MonoBehaviour
     GameObject createdObject = null;
 
     private void Start() {
+       
         Singletons.Get<PrefsManager>().LoadGame(this);
     }
 
@@ -20,13 +21,25 @@ public class CreationManager : MonoBehaviour
                objectsToInstantiate[index].transform.position,
                objectsToInstantiate[index].transform.rotation);
         createdObject.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 5;
+
+        Singletons.Get<UndoManager>().TrackChangeAction(UndoableActionType.Delete, createdObject, false, true);
+
     }
 
-    public void CreateObjectWithAttributes(Vector3 position, Quaternion rotation, Vector3 scale) {
+    public void CreateObjectWithAttributes(Vector3 position, Quaternion rotation, Vector3 scale, string name) {
 
-        GameObject createdObject = Instantiate(objectsToInstantiate[0],
+        GameObject obj = null;
+
+        if (name.Contains("Goat"))
+            obj = objectsToInstantiate[0];
+        else
+            obj = objectsToInstantiate[1];
+         
+
+        GameObject createdObject = Instantiate(obj,
                position,
                rotation);
+
 
         createdObject.transform.localScale = scale;
 
