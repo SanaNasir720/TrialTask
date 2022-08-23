@@ -13,3 +13,5 @@ Right now all the objects are created at the same position which can be improved
 I have used very simple UI buttons to save time. Meaningful UI especially different Icons can be added to provide the user with more understanding. Right now I am using the S button for Scale, M for movement, and D for delete.
 
 There were some things which have to decide by myself which I found challenging for example how to navigate through a 3D scene and how to provide the user with the ability to scale, delete and move objects.
+
+Overall I am happy to do this task and learned new things. Thank you!
